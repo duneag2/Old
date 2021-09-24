@@ -1,0 +1,24 @@
+class User:
+    def __init__(self, name, phone_number, year_of_birth):
+        self.name = name
+        self.phone_number = phone_number
+        self.year_of_birth = year_of_birth
+
+    def showoneself(self):
+        print("hello my name is " + self.name + " and I phone number is 010-" + self.phone_number + '-5936 and I was born in ' + self.year_of_birth)
+
+f = open('C:\\Users\\kongs\\Desktop\\list.csv', 'r')
+lines = f.readlines()
+print(type(lines))
+print(len(lines))
+
+family_list = list()
+
+for line in lines:
+    member_list = line.split(',')
+    family_list.append(User(member_list[0], member_list[1], member_list[2]))
+
+print(family_list[0].showoneself())
+
+f.close()
+

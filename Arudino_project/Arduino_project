@@ -1,0 +1,19 @@
+//https://github.com/SeungEun-dune/Arduino-Project_1.git
+
+
+//아두이노로 만드는 나만의 노래 (아두이노 코드)
+#include <pitches.h> // 음의 주파수를 헤더파일(h)로 처리한다.
+int notenum=2; // 연주할 음의 개수를 입력한다.                  
+int melody[]= {NOTE_B4, NOTE_A4}; // 연주할 음을 입력한다.
+int noteDurations[]= {8,8}; // 연주할 음의 박자를 입력한다.
+void setup() {
+for (int thisNote=0; thisNote<notenum; thisNote++) {
+    int noteDuration=1000/noteDurations[thisNote];
+    tone(3, melody[thisNote], noteDuration);
+    int pauseBetweenNotes = noteDuration *1.30;
+    delay(pauseBetweenNotes);
+    noTone(3);           }
+    } // for loop를 이용해 음계를 연주한다.
+    //  tone 함수: tone(연결 핀 번호, 연주 음, 박자);
+        noTone 함수: noTone(연결 핀 번호);
+       

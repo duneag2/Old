@@ -1,0 +1,49 @@
+//https://github.com/SeungEun-dune/Catenary_Geometry.git
+
+#include <stdio.h>
+#include <stdlib.h>
+
+main()
+{
+    FILE *fp;
+    fp = fopen("C:/Users/MIYOUNG/Desktop/fp.txt","wt");
+    int i,num;
+    float sum,x,y,z,d,db,m;
+
+    printf("x절편과 y절편의 합 입력\n");
+    scanf("%f", &sum);
+
+    printf("x 시작값 입력\n");
+    scanf("%f", &x);
+
+    printf("공차(d) 입력\n");
+    scanf("%f", &d);
+
+    printf("접선의 방정식 개수 입력\n");
+    scanf("%d", &num);
+
+
+    printf("\n");
+
+    db=2*sum;
+    m=sum*sum;
+
+    for(i=0;i<num;i++)
+
+        {
+            y=x+d*i;
+            z=sum-y;
+            printf("접선의 방정식: x/%f+y/%f=1",y,z);
+            printf("\n");
+            fprintf(fp,"x/%f+y/%f=1\n",y,z);
+        }
+
+    fprintf(fp,"\nx^2-2xy+y^2-%fx-%fy+%f=0",db,db,m);
+    printf("\nx^2-2xy+y^2-%fx-%fy+%f=0",db,db,m);
+
+    fclose(fp);
+    return 0;
+}
+
+
+// Note. "C:/Users/MIYOUNG/Desktop/fp.txt" is just an empty .txt file. No need to attach this file.(Just make a new empty file while using this code.)

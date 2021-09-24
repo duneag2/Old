@@ -1,0 +1,6 @@
+import numpy as np
+t = np.full((3,2,4,5), 0)
+
+print(t)
+print(t.ndim)
+print(t.size)

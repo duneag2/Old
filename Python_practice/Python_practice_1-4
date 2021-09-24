@@ -1,0 +1,37 @@
+import csv
+
+class User:
+    def __init__(self, name, phone_number, year_of_birth):
+        self.name = name
+        self.phone_number = phone_number
+        self.year_of_birth = year_of_birth
+
+    def showoneself(self):
+        print("hello my name is " + self.name + " and I phone number is 010-" + self.phone_number + '-5936 and I was born in ' + self.year_of_birth)
+
+    def plus(self):
+        plus = self.phone_number + self.year_of_birth
+        return plus
+
+    def plus_1(self):
+        plus_1 = int(self.phone_number) + int(self.year_of_birth)
+        return plus_1
+
+
+f = open('C:\\Users\\kongs\\Desktop\\list.csv', 'r')
+lines = csv.reader(f)
+family_list = list()
+i=0
+for line in lines:
+    if i>0:
+        family_list.append(User(line[0], line[1], line[2]))
+    i += 1
+f.close()
+
+g = open('C:\\Users\\kongs\\Desktop\\output.csv', 'w', newline='')
+csv_writer = csv.writer(g)
+csv_writer.writerow(['이름', '전화번호', '출생연도', '덧셈', '덧셈2'])
+
+for User in family_list:
+    csv_writer.writerow([User.name, User.phone_number, User.year_of_birth, User.plus(), User.plus_1()])
+g.close()

@@ -1,0 +1,19 @@
+import csv
+f= open('C:\\Users\\kongs\\Desktop\\list.csv', 'r')
+lines = csv.reader(f)
+
+i=0
+for line in lines:
+    if i>0:
+        print(line)
+    i += 1
+
+f.close()
+
+g = open('C:\\Users\\kongs\\Desktop\\output.csv', 'w', newline='')
+csv_writer = csv.writer(g)
+csv_writer.writerow(['옹냐', 'b', 'c', 'd'])
+csv_writer.writerow([1, 2, 3, 4])
+g.close()
+
+
